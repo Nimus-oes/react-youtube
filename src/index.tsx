@@ -21,11 +21,7 @@ const router = createBrowserRouter([
         Component: Videos,
       },
       {
-        path: "/videos/:keyword",
-        Component: Videos,
-      },
-      {
-        path: "/videos/watch/:videoId",
+        path: "/watch/:videoId",
         Component: VideoDetail,
       },
       {

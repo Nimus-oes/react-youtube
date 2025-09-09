@@ -1,9 +1,10 @@
 import { Outlet } from "react-router";
+import SearchHeader from "./components/SearchHeader";
 
 export default function App() {
   return (
     <>
-      <header>Header</header>
+      <SearchHeader />
       <Outlet />
     </>
   );
