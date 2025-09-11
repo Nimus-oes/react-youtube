@@ -1,3 +1,10 @@
+import { useLoaderData } from "react-router";
+
 export default function Videos() {
-  return <div>Videos</div>;
+  const { q, results } = useLoaderData();
+  return (
+    <>
+      <div>{q ? `Videos: ${q}` : "Videos 🔥"}</div>
+    </>
+  );
 }
