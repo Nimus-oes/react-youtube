@@ -5,9 +5,15 @@ import { useEffect, useState } from "react";
 export default function SearchHeader() {
   const [sp] = useSearchParams();
   const q = sp.get("q") || "";
-  const [text, setText] = useState<string | number>("");
+  const [text, setText] = useState<string>("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (!/\S/.test(text)) {
+      e.preventDefault();
+    }
   };
 
   useEffect(() => setText(q), [q]);
@@ -15,7 +21,7 @@ export default function SearchHeader() {
   return (
     <header className={styles.container}>
       <Link to={"/"}>YouTube</Link>
-      <Form action="/videos" method="get">
+      <Form action="/videos" method="get" onSubmit={handleSubmit}>
         <input name="q" value={text} onChange={handleChange} />
         <button>🔍</button>
       </Form>
