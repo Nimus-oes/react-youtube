@@ -21,7 +21,12 @@ export default function SearchHeader() {
   return (
     <header className={styles.container}>
       <Link to={"/"}>YouTube</Link>
-      <Form action="/videos" method="get" onSubmit={handleSubmit}>
+      <Form
+        action="/videos"
+        method="get"
+        onSubmit={handleSubmit}
+        className={styles.form}
+      >
         <input name="q" value={text} onChange={handleChange} />
         <button>🔍</button>
       </Form>
